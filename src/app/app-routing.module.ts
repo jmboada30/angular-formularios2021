@@ -13,6 +13,13 @@ const routes: Routes = [
       import('./reactive/reactive.module').then((m) => m.ReactiveModule),
   },
   {
+    path: 'custom',
+    loadChildren: () =>
+      import('./form-custom/form-custom.module').then(
+        (m) => m.FormCustomModule
+      ),
+  },
+  {
     path: '**',
     redirectTo: 'template',
   },

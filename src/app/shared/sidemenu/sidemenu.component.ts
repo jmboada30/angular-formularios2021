@@ -40,4 +40,11 @@ export class SidemenuComponent {
       ruta: './reactive/switches',
     },
   ];
+
+  customMenu: MenuItem[] = [
+    {
+      texto: 'Form Custom',
+      ruta: './custom/form',
+    },
+  ];
 }

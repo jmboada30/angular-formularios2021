@@ -1,0 +1,43 @@
+<h2>Custom: Dinámicos desde Backend</h2>
+<hr />
+
+<div *ngIf="misCampos.length">
+  <form (ngSubmit)="guardar()" [formGroup]="miFormulario" autocomplete="off">
+    <div class="mb-3 row" *ngFor="let campo of misCampos">
+      <label class="col-sm-3 col-form-label">{{ campo.label }}</label>
+      <div class="col-sm-9">
+        <input
+          type="{{ campo.type }}"
+          class="form-control"
+          placeholder="{{ campo.placeholder }}"
+          formControlName="{{ campo.name }}"
+        />
+        <span class="form-text text-danger" *ngIf="campoEsInvalid(campo.name)">
+          Campo requerido
+        </span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <button class="btn btn-primary float-end" type="submit">Guardar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="row">
+  <div class="col">
+    <span>Valid</span>
+    <pre>{{ miFormulario.valid }}</pre>
+
+    <span>Pristine</span>
+    <pre>{{ miFormulario.pristine }}</pre>
+
+    <span>Touched</span>
+    <pre>{{ miFormulario.touched }}</pre>
+
+    <span>Value</span>
+    <pre>{{ miFormulario.value | json }}</pre>
+  </div>
+</div>
